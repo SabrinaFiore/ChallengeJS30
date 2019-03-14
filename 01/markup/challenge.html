@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>js-challenge</title>
+    <link rel="stylesheet" type="text/css" href="challenge.css">
+    <!-- <script src="challenge.js"></script> -->
+</head>
+<body>
+<div class="challenge">
+    <div class="challenge__box">
+        <div data-key="65" class="key">
+            <kbd>A</kbd>
+            <span class="sound">clap</span>
+        </div>
+        <div data-key="83" class="key">
+            <kbd>S</kbd>
+            <span class="sound">hihat</span>
+        </div>
+        <div data-key="68" class="key">
+            <kbd>D</kbd>
+            <span class="sound">kick</span>
+        </div>
+        <div data-key="70" class="key">
+            <kbd>F</kbd>
+            <span class="sound">openhat</span>
+        </div>
+        <div data-key="71" class="key">
+            <kbd>G</kbd>
+            <span class="sound">boom</span>
+        </div>
+        <div data-key="72" class="key">
+            <kbd>H</kbd>
+            <span class="sound">ride</span>
+        </div>
+        <div data-key="74" class="key">
+            <kbd>J</kbd>
+            <span class="sound">snare</span>
+        </div>
+        <div data-key="75" class="key">
+            <kbd>K</kbd>
+            <span class="sound">tom</span>
+        </div>
+        <div data-key="76" class="key">
+            <kbd>L</kbd>
+            <span class="sound">tink</span>
+        </div>
+    </div>
+</div>
+    
+<audio data-key="65" src="../markup/sounds/clap.wav"></audio>
+<audio data-key="83" src="../markup/sounds/hihat.wav"></audio>
+<audio data-key="68" src="../markup/sounds/kick.wav"></audio>
+<audio data-key="70" src="../markup/sounds/openhat.wav"></audio>
+<audio data-key="71" src="../markup/sounds/boom.wav"></audio>
+<audio data-key="72" src="../markup/sounds/ride.wav"></audio>
+<audio data-key="74" src="../markup/sounds/snare.wav"></audio>
+<audio data-key="75" src="../markup/sounds/tom.wav"></audio>
+<audio data-key="76" src="../markup/sounds/tink.wav"></audio>
+
+<script>
+    window.addEventListener('keydown', function(e) {
+        // console.log(e.keyCode);
+        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); // without " " is not a valid selector.
+        const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+        console.log(e);
+        if(!audio) return;
+        audio.play();
+
+        key.classList.add('playing');
+    }); 
+</script>
+</body>
+</html>
